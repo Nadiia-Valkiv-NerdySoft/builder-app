@@ -1,4 +1,4 @@
 export const environment = {
   production: false,
-  builderApiKey: 'b7ec17402f8e4f15a7bf9f943a2a88dc',
+  builderApiKey: '5373a52872414f60a6606e7a65ef05b6',
 };
