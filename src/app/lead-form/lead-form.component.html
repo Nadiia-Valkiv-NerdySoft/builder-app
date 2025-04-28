@@ -1,0 +1,31 @@
+<div class="lead-form-container">
+  <h2>{{ title }}</h2>
+
+  <form [formGroup]="leadForm" (ngSubmit)="onSubmit()" class="lead-form">
+    <div>
+      <label>Email</label>
+      <input
+        type="email"
+        formControlName="email"
+        [placeholder]="emailPlaceholder"
+      />
+      <div
+        *ngIf="leadForm.get('email')?.invalid && leadForm.get('email')?.touched"
+      >
+        Email is required and must be valid.
+      </div>
+    </div>
+
+    <div>
+      <label>ZIP Code</label>
+      <input type="text" formControlName="zip" [placeholder]="zipPlaceholder" />
+      <div *ngIf="leadForm.get('zip')?.invalid && leadForm.get('zip')?.touched">
+        ZIP must be 5 digits.
+      </div>
+    </div>
+
+    <button type="submit" [disabled]="leadForm.invalid">
+      {{ buttonText }}
+    </button>
+  </form>
+</div>
