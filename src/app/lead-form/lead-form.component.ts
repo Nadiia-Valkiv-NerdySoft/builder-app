@@ -8,7 +8,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
   styleUrls: ['./lead-form.component.scss'],
 })
 export class LeadFormComponent {
-  @Input() emailPlaceholder = 'Enter your email'; // ← обов'язково через @Input
+  @Input() emailPlaceholder = 'Enter your email';
   @Input() zipPlaceholder = 'Enter your ZIP code';
   @Input() buttonText = 'Submit';
   @Input() title = 'Get in touch with us';
@@ -42,7 +42,7 @@ BuilderBlock({
     },
     {
       name: 'zipPlaceholder',
-      type: 'string',
+      type: 'number',
     },
     {
       name: 'buttonText',

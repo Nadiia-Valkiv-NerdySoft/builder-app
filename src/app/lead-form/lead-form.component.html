@@ -3,13 +3,13 @@
 
   <form [formGroup]="leadForm" (ngSubmit)="onSubmit()" class="lead-form">
     <div>
-      <label>Email</label>
       <input
         type="email"
         formControlName="email"
         [placeholder]="emailPlaceholder"
       />
       <div
+        class="error-message"
         *ngIf="leadForm.get('email')?.invalid && leadForm.get('email')?.touched"
       >
         Email is required and must be valid.
@@ -17,9 +17,18 @@
     </div>
 
     <div>
-      <label>ZIP Code</label>
-      <input type="text" formControlName="zip" [placeholder]="zipPlaceholder" />
-      <div *ngIf="leadForm.get('zip')?.invalid && leadForm.get('zip')?.touched">
+      <input
+        type="text"
+        inputmode="numeric"
+        pattern="\d{5}"
+        formControlName="zip"
+        [placeholder]="zipPlaceholder"
+        required
+      />
+      <div
+        class="error-message"
+        *ngIf="leadForm.get('zip')?.invalid && leadForm.get('zip')?.touched"
+      >
         ZIP must be 5 digits.
       </div>
     </div>
